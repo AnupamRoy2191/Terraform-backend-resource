@@ -1,16 +1,24 @@
-# Notes #
-This is the normal terraform backend resource provisioning project, where in we will provision resource group, in that we'll going to create a storage account and container in which state file will be managed for other terraform projects.
+# Terraform Backend Resource Provisioning
 
-So this project should be managed locally as a bootstrapping for backend resource i.e storage account & container purpose.
+This project provisions the backend infrastructure required for managing Terraform state files. It includes the creation of:
 
-There should be one tfvars file to store variables and its values as mentoned below for service principle using which terraform will create resources  :
+- An **Azure Resource Group**
+- A **Storage Account** within that group
+- A **Container** inside the storage account to hold the `.tfstate` files
 
-secrets.tfvars
+This project serves as a **local bootstrap** setup and should be executed independently before other Terraform projects that depend on remote state management.
 
-subscription_id = "xxxxxxxxxxxxxxxx
-client_id       = "xxxxxxxxxxxxxxxx     ## Registered App's ID 
-client_secret   = "xxxxxxxxxxxxxxxx ## client secret value
-tenant_id       = "xxxxxxxxxxxxxxxx"     ## Registered App's tenant ID 
+---
+
+## 🔐 Secrets and Variables
+
+Create a `secrets.tfvars` file in the root directory of the project to store sensitive variables. Below is the required structure:
+
+```hcl
+subscription_id = "xxxxxxxxxxxxxxxx"
+client_id       = "xxxxxxxxxxxxxxxx"   # Registered App's Client ID
+client_secret   = "xxxxxxxxxxxxxxxx"   # Registered App's Client Secret
+tenant_id       = "xxxxxxxxxxxxxxxx"   # Azure Tenant ID
 
 # commands #
 
@@ -42,3 +50,12 @@ terraform apply tfplan -var-file=secrets.tfvars
 OR
 
 terraform apply tfplan -auto-approve -var-file=secrets.tfvars
+
+
+📌 Notes
+
+This setup should be treated as a local bootstrap.
+
+It is meant only for provisioning the backend (remote state) resources.
+
+Do not store secrets in version control.
