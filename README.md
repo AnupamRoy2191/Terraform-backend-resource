@@ -3,6 +3,15 @@ This is the normal terraform backend resource provisioning project, where in we 
 
 So this project should be managed locally as a bootstrapping for backend resource i.e storage account & container purpose.
 
+There should be one tfvars file to store variables and its values as mentoned below for service principle using which terraform will create resources  :
+
+secrets.tfvars
+
+subscription_id = "xxxxxxxxxxxxxxxx
+client_id       = "xxxxxxxxxxxxxxxx     ## Registered App's ID 
+client_secret   = "xxxxxxxxxxxxxxxx ## client secret value
+tenant_id       = "xxxxxxxxxxxxxxxx"     ## Registered App's tenant ID 
+
 # commands #
 
 go to project location 
