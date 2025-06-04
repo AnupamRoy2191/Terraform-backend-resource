@@ -13,17 +13,23 @@ cd Terraform-backend-resource
 terraform init
 
 Run below command to check the config files sytax :
+
 terraform fmt
 terraform validate
 
 Run below command to create a project plan :
+
 terraform plan -out tfplan -var-file=secrets.tfvars
 
 Run below command to provision the backend resources without auto approval :
+
 terraform apply -var-file=secrets.tfvars
 above command will ask for the prompt whether to proceed yes or no
 
 Run below command to provision the backend resource with auto approval :
+
 terraform apply tfplan -var-file=secrets.tfvars
+
 OR
+
 terraform apply tfplan -auto-approve -var-file=secrets.tfvars
