@@ -1,6 +1,6 @@
 # Terraform Backend Resource Provisioning
 
-This project provisions the backend infrastructure required for managing Terraform state files. It includes the creation of:
+This project provisions the backend infrastructure required for managing Terraform state files on azure cloud. It includes the creation of:
 
 - An **Azure Resource Group**
 - A **Storage Account** within that group
