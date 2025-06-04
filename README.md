@@ -20,7 +20,7 @@ client_id       = "xxxxxxxxxxxxxxxx"   # Registered App's Client ID
 client_secret   = "xxxxxxxxxxxxxxxx"   # Registered App's Client Secret
 tenant_id       = "xxxxxxxxxxxxxxxx"   # Azure Tenant ID
 
-# commands #
+##  Getting started with commands
 
 go to project location 
 
@@ -52,7 +52,7 @@ OR
 terraform apply tfplan -auto-approve -var-file=secrets.tfvars
 
 
-📌 Notes
+## 📌 Notes
 
 This setup should be treated as a local bootstrap.
 
